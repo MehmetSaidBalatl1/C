@@ -1,6 +1,7 @@
 // HackerRank - Array Reversal //
 // Given an array, of size n, reverse it.
 //
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,9 +14,9 @@ int main()
         scanf("%d", arr + i);
     }
     for(i=0;i<num/2;i++){
-     int temp = arr[i];
-     arr[i] =  arr[num-1-i];
-     arr[num-1-i] = temp;
+        int temp = arr[i];
+        arr[i] = arr[num-i-1];
+        arr[num-i-1] = temp;
     }
 
     for(i = 0; i < num; i++)
