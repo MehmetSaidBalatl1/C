@@ -1,0 +1,53 @@
+// HackerRank - Variadic Functions in C //
+// Task
+In this problem, you will implement three variadic functions named sum(), min() and max() to calculate sums, minima, maxima of a variable number of arguments. 
+The first argument passed to the variadic function is the count of the number of arguments, which is followed by the arguments themselves.
+//
+
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define MIN_ELEMENT 1
+#define MAX_ELEMENT 1000000
+int  sum (int count,...) {
+va_list args;
+va_start(args, count);
+    int total_sum = 0;
+    for (int i=0; i<count; i++) {
+    total_sum += va_arg(args,int);
+    }
+va_end(args);
+return total_sum;
+} 
+ 
+int min(int count,...) {
+va_list args;
+va_start(args,count);
+    int min = va_arg(args,int);
+    for (int i=0;i<count;i++){
+        int current = va_arg(args,int);
+        if (current<min) {
+            min = current;
+        }      
+    } 
+va_end(args);
+return min;
+}
+
+int max(int count,...) {
+va_list args;
+va_start(args,count);
+int max = va_arg(args,int);
+for (int i=0;i<count;i++){
+    int current = va_arg(args,int);
+    if (current>max){
+        max = current;
+    }
+}
+va_end(args);
+return max;
+}
+
+int test_implementations_by_sending_three_elements() {
